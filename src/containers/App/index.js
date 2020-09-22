@@ -1,7 +1,12 @@
 import React from 'react';
+import Input from 'components/Form/Input';
 
 const App = () => {
-  return <h1>Hello World</h1>;
+  return (
+    <React.Fragment>
+      <Input type="text" placeholder="Nome"/>
+    </React.Fragment>
+  );
 };
 
 export default App;
