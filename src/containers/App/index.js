@@ -1,19 +1,31 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Input from 'components/Form/Input';
+import {StyledWrapper} from 'assets/global/styled';
+import {StyledSignature, StyledSignatureForm, StyledSignaturePreview} from './styled';
 
 const App = () => {
+  const { handleSubmit, register, errors } = useForm();
 
-  const {handleSubmit, register, errors} = useForm();
-
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     console.log('data', data);
-  }
+  };
 
   return (
-    <React.Fragment>
-      <Input type="text" placeholder="Nome" ref={register({required: true})} />
-    </React.Fragment>
+    <StyledSignature>
+      <StyledWrapper>
+      <StyledSignatureForm>
+      <Input
+        type="text"
+        placeholder="Nome"
+        ref={register({ required: true })}
+      />
+      </StyledSignatureForm>
+      <StyledSignaturePreview>
+        <p>Preview</p>
+      </StyledSignaturePreview>
+      </StyledWrapper>
+    </StyledSignature>
   );
 };
 
