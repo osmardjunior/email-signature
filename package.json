@@ -14,6 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:lint": "yarn eslint . --ignore-path .gitignore --ext .js",
     "format": "prettier \"src/**/*.{js,jsx,json,css}\" --write",
     "eject": "react-scripts eject"
   },
