@@ -1,8 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Input from 'components/Form/Input';
-import {StyledWrapper} from 'assets/global/styled';
-import {StyledSignature, StyledSignatureForm, StyledSignaturePreview} from './styled';
+import { StyledWrapper } from 'assets/global/styled';
+import {
+  StyledSignature,
+  StyledSignatureForm,
+  StyledSignaturePreview
+} from './styled';
 
 const App = () => {
   const { handleSubmit, register, errors } = useForm();
@@ -14,16 +18,16 @@ const App = () => {
   return (
     <StyledSignature>
       <StyledWrapper>
-      <StyledSignatureForm>
-      <Input
-        type="text"
-        placeholder="Nome"
-        ref={register({ required: true })}
-      />
-      </StyledSignatureForm>
-      <StyledSignaturePreview>
-        <p>Preview</p>
-      </StyledSignaturePreview>
+        <StyledSignatureForm>
+          <Input
+            type="text"
+            placeholder="Nome"
+            ref={register({ required: true })}
+          />
+        </StyledSignatureForm>
+        <StyledSignaturePreview>
+          <p>Preview</p>
+        </StyledSignaturePreview>
       </StyledWrapper>
     </StyledSignature>
   );
