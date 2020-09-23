@@ -93,8 +93,12 @@ export const StyledNotice = styled.div`
   color: ${colors.gray100};
   background-color: ${colors.red400};
   border-radius: 4px;
-  opacity: ${props => props.copied ? '1' : '0'};
-  transform: ${props => props.copied ? 'translateX(0)' : 'translateX(500px)'};
-  transform: ${props => props.copied ? 'translate3d(0, 0, 0)' : 'translate3d(500px, 0, 0)'};
-  transition: all .2s linear;
+  opacity: ${(props) => (props.copied ? '1' : '0')};
+  transform: ${(props) =>
+    props.copied ? 'translateX(0)' : 'translateX(500px)'};
+  transform: ${(props) =>
+    props.copied
+      ? 'translate3d(0, 0, 0)'
+      : 'translate3d(500px, 0, 0)'};
+  transition: all 0.2s linear;
 `;
