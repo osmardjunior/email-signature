@@ -20,11 +20,21 @@ import iconAteliware from 'assets/images/ateliware-icon.svg';
 import logoAteliware from 'assets/images/ateliware-logo.svg';
 
 const App = () => {
-  const [name, setName] = useState('Celso Fabri Junior');
-  const [role, setRole] = useState('Front-End Software Engineer');
-  const [email, setEmail] = useState('celso.fabri@ateliware.com');
-  const [phone, setPhone] = useState('41 99122-2951');
+  const [name, setName] = useState('Peterson F. dos Santos');
+  const [role, setRole] = useState('Co-founder & CEO');
+  const [email, setEmail] = useState('peterson.santos@ateliware.com');
+  const [phone, setPhone] = useState('41 99999-9999');
   const { register, watch } = useForm();
+
+  const phoneNumberMasked = (value) => {
+
+   return (value
+      .replace(/\D/g, '')
+      .replace(/(\d{2})(\d)/, '$1 $2')
+      .replace(/(\d{4})(\d)/, '$1-$2')
+      .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+      .replace(/(-\d{4})\d+?$/, '$1'))
+  }
 
   return (
     <StyledSignature>
@@ -53,7 +63,7 @@ const App = () => {
               type="text"
               name="name"
               onChange={() => {
-                setName(watch('name'))
+                setName(watch('name'));
               }}
               placeholder="Insira seu nome"
               ref={register({ required: false })}
@@ -64,7 +74,7 @@ const App = () => {
               type="text"
               name="role"
               onChange={() => {
-                setRole(watch('role'))
+                setRole(watch('role'));
               }}
               placeholder="Insira seu cargo"
               ref={register({ required: false })}
@@ -75,7 +85,7 @@ const App = () => {
               type="email"
               name="email"
               onChange={() => {
-                setEmail(watch('email'))
+                setEmail(watch('email'));
               }}
               placeholder="Insira seu e-mail"
               ref={register({ required: false })}
@@ -86,8 +96,9 @@ const App = () => {
             <Input
               type="tel"
               name="phone"
-              onChange={() => {
-                setPhone(watch('phone'))
+              onChange={(event) => {
+                event.target.value = phoneNumberMasked(event.target.value);
+                setPhone(watch('phone'));
               }}
               placeholder="Insira seu telefone"
               ref={register({ required: false })}
@@ -114,11 +125,15 @@ const App = () => {
           </StyledSignatureImage>
           <StyledSignatureInfo>
             <StyledSignatureName>{name}</StyledSignatureName>
+
             <StyledSignatureRole>{role}</StyledSignatureRole>
+
             <StyledSignatureEmail>{email}</StyledSignatureEmail>
+
             <StyledSignaturePhone>
               +55 41 3010-2275
             </StyledSignaturePhone>
+
             <StyledSignaturePhone>+55 {phone}</StyledSignaturePhone>
           </StyledSignatureInfo>
         </StyledSignaturePreview>
