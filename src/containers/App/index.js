@@ -22,7 +22,6 @@ import {
 import colors from 'assets/global/colors';
 import fonts from 'assets/global/fonts';
 import iconAteliware from 'assets/images/ateliware-icon.svg';
-import logoAteliware from 'assets/images/ateliware-logo.svg';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -151,7 +150,7 @@ const App = () => {
                 );
                 setPhone(watch('phone'));
               }}
-              placeholder="Insira seu telefone"
+              placeholder="Insira seu telefone (e.g.: 41 99999-9999)"
               ref={register({ required: false })}
             />
           </StyledSignatureFields>
@@ -179,7 +178,7 @@ const App = () => {
               rel="noopener noreferrer"
             >
               <img
-                src={logoAteliware}
+                src="https://raw.githubusercontent.com/celsofabri/email-signature/master/src/assets/images/ateliware-logo.svg"
                 width="200"
                 height="auto"
                 alt="Ateliware"

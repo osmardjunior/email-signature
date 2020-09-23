@@ -50,7 +50,6 @@ export const StyledSignatureActions = styled.div`
   }
 
   @media screen and (max-width: 420px) {
-
     button {
       display: block;
       width: 100%;
