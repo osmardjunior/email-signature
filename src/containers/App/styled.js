@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { StyledWrapper } from 'assets/global/styled';
+import colors from 'assets/global/colors';
+import fonts from 'assets/global/fonts';
 
 export const StyledSignature = styled.section`
   display: block;
@@ -36,12 +38,30 @@ export const StyledSignaturePreview = styled.div`
 
 export const StyledSignatureImage = styled.div``;
 
-export const StyledSignatureInfo = styled.div``;
+export const StyledSignatureInfo = styled.div`
 
-export const StyledSignatureName = styled.div``;
+p {
+  margin: 2px 0;
+}`;
 
-export const StyledSignatureRole = styled.div``;
+export const StyledSignatureName = styled.h3`
+  margin: 0;
+  font-family: ${fonts.primary};
+  color: ${colors.red400};
+`;
 
-export const StyledSignatureEmail = styled.div``;
+export const StyledSignatureRole = styled.p`
+  font-family: ${fonts.secondary};
+  font-size: 15px;
+  font-weight: 700;
+`;
 
-export const StyledSignaturePhone = styled.div``;
+export const StyledSignatureEmail = styled.p`
+  font-family: ${fonts.secondary};
+  font-size: 15px;
+`;
+
+export const StyledSignaturePhone = styled.p`
+  font-family: ${fonts.secondary};
+  font-size: 15px;
+`;
