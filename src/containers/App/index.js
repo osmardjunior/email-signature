@@ -194,6 +194,7 @@ const App = () => {
 
             <StyledSignatureRole
               style={{
+                margin: '2px 0',
                 fontFamily: fonts.primary,
                 fontSize: '15px',
                 fontWeight: '700',
@@ -205,6 +206,7 @@ const App = () => {
 
             <StyledSignatureEmail
               style={{
+                margin: '2px 0',
                 fontFamily: fonts.secondary,
                 fontSize: '15px',
                 color: colors.gray400
@@ -215,6 +217,7 @@ const App = () => {
 
             <StyledSignaturePhone
               style={{
+                margin: '2px 0',
                 fontFamily: fonts.secondary,
                 fontSize: '15px',
                 color: colors.gray400
@@ -226,6 +229,7 @@ const App = () => {
             {phone !== '' && (
               <StyledSignaturePhone
                 style={{
+                  margin: '2px 0',
                   fontFamily: fonts.secondary,
                   fontSize: '15px',
                   color: colors.gray400
