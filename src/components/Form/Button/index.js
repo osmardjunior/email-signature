@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyledField, StyledButton } from '../styled';
 
-const Button = ({ children, ...props }) => {
+const Button = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <StyledField>
-      <StyledButton {...props}>{children}</StyledButton>
+      <StyledButton ref={ref} {...props}>{children}</StyledButton>
     </StyledField>
   );
-};
+});
 
 export default Button;

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import ClipboardJS from 'clipboard';
 import Input from 'components/Form/Input';
 import Button from 'components/Form/Button';
 import { StyledWrapper } from 'assets/global/styled';
@@ -20,21 +21,63 @@ import iconAteliware from 'assets/images/ateliware-icon.svg';
 import logoAteliware from 'assets/images/ateliware-logo.svg';
 
 const App = () => {
-  const [name, setName] = useState('Peterson F. dos Santos');
-  const [role, setRole] = useState('Co-founder & CEO');
-  const [email, setEmail] = useState('peterson.santos@ateliware.com');
-  const [phone, setPhone] = useState('41 99999-9999');
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [copied, setCopied] = useState(false);
   const { register, watch } = useForm();
+  const preview = useRef(null);
+  const copyHTML = useRef(null);
 
   const phoneNumberMasked = (value) => {
-
-   return (value
+    return value
       .replace(/\D/g, '')
       .replace(/(\d{2})(\d)/, '$1 $2')
       .replace(/(\d{4})(\d)/, '$1-$2')
       .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
-      .replace(/(-\d{4})\d+?$/, '$1'))
+      .replace(/(-\d{4})\d+?$/, '$1');
+  };
+
+  const clearRange = () => {
+    setTimeout(() => {
+      window.getSelection().removeAllRanges();
+      setCopied(false);
+    }, 5000);
   }
+
+  const copyText = () => {
+    window.getSelection().removeAllRanges();
+
+    const container = preview.current;
+    const range = document.createRange();
+
+    range.selectNode(container);
+    window.getSelection().addRange(range);
+    document.execCommand('Copy');
+
+    setCopied(true);
+    clearRange();
+  }
+
+  useEffect(() => {
+    const clipboard = new ClipboardJS(copyHTML.current, {
+      text: () => {
+        return preview.current.outerHTML;
+      }
+    })
+
+    clipboard.on('success', () => {
+      setCopied(true);
+      clearRange();
+    });
+
+    clipboard.on('error', err => {
+      console.log(err);
+      setCopied(false);
+      clearRange();
+    })
+  }, [copyHTML])
 
   return (
     <StyledSignature>
@@ -54,6 +97,9 @@ const App = () => {
               />
             </a>
           </h1>
+          {copied &&
+            <p>Copiado!</p>
+          }
         </StyledWrapper>
       </StyledSignatureHeader>
       <StyledWrapper>
@@ -97,7 +143,9 @@ const App = () => {
               type="tel"
               name="phone"
               onChange={(event) => {
-                event.target.value = phoneNumberMasked(event.target.value);
+                event.target.value = phoneNumberMasked(
+                  event.target.value
+                );
                 setPhone(watch('phone'));
               }}
               placeholder="Insira seu telefone"
@@ -105,10 +153,17 @@ const App = () => {
             />
           </StyledSignatureFields>
           <StyledSignatureFields>
-            <Button type="button">Copiar assinatura</Button>
+            <Button type="button" onClick={() => {
+              copyText();
+            }}>
+              Copiar assinatura
+            </Button>
+            <Button type="button" ref={copyHTML}>
+              Copiar em HTML
+            </Button>
           </StyledSignatureFields>
         </StyledSignatureContainer>
-        <StyledSignaturePreview>
+        <StyledSignaturePreview ref={preview}>
           <StyledSignatureImage>
             <a
               href="https://ateliware.com/"
@@ -124,17 +179,27 @@ const App = () => {
             </a>
           </StyledSignatureImage>
           <StyledSignatureInfo>
-            <StyledSignatureName>{name}</StyledSignatureName>
+            <StyledSignatureName>
+              {name || 'Peterson F. dos Santos'}
+            </StyledSignatureName>
 
-            <StyledSignatureRole>{role}</StyledSignatureRole>
+            <StyledSignatureRole>
+              {role || 'Co-founder & CEO'}
+            </StyledSignatureRole>
 
-            <StyledSignatureEmail>{email}</StyledSignatureEmail>
+            <StyledSignatureEmail>
+              {email || 'peterson.santos@ateliware.com'}
+            </StyledSignatureEmail>
 
             <StyledSignaturePhone>
               +55 41 3010-2275
             </StyledSignaturePhone>
 
-            <StyledSignaturePhone>+55 {phone}</StyledSignaturePhone>
+            {phone !== '' && (
+              <StyledSignaturePhone>
+                +55 {phone || '41 99999-9999'}
+              </StyledSignaturePhone>
+            )}
           </StyledSignatureInfo>
         </StyledSignaturePreview>
       </StyledWrapper>
