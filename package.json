@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "test:lint": "yarn eslint . --ignore-path .gitignore --ext .js",
     "format": "prettier \"src/**/*.{js,jsx,json,css}\" --write",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
     "eject": "react-scripts eject"
   },
