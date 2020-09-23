@@ -44,7 +44,7 @@ const App = () => {
       window.getSelection().removeAllRanges();
       setCopied(false);
     }, 5000);
-  }
+  };
 
   const copyText = () => {
     window.getSelection().removeAllRanges();
@@ -58,26 +58,26 @@ const App = () => {
 
     setCopied(true);
     clearRange();
-  }
+  };
 
   useEffect(() => {
     const clipboard = new ClipboardJS(copyHTML.current, {
       text: () => {
         return preview.current.outerHTML;
       }
-    })
+    });
 
     clipboard.on('success', () => {
       setCopied(true);
       clearRange();
     });
 
-    clipboard.on('error', err => {
+    clipboard.on('error', (err) => {
       console.log(err);
       setCopied(false);
       clearRange();
-    })
-  }, [copyHTML])
+    });
+  }, [copyHTML]);
 
   return (
     <StyledSignature>
@@ -97,9 +97,7 @@ const App = () => {
               />
             </a>
           </h1>
-          {copied &&
-            <p>Copiado!</p>
-          }
+          {copied && <p>Copiado!</p>}
         </StyledWrapper>
       </StyledSignatureHeader>
       <StyledWrapper>
@@ -153,9 +151,12 @@ const App = () => {
             />
           </StyledSignatureFields>
           <StyledSignatureFields>
-            <Button type="button" onClick={() => {
-              copyText();
-            }}>
+            <Button
+              type="button"
+              onClick={() => {
+                copyText();
+              }}
+            >
               Copiar assinatura
             </Button>
             <Button type="button" ref={copyHTML}>
