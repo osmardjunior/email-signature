@@ -9,13 +9,15 @@ import {
   StyledSignatureHeader,
   StyledSignatureContainer,
   StyledSignatureFields,
+  StyledSignatureActions,
   StyledSignaturePreview,
   StyledSignatureImage,
   StyledSignatureInfo,
   StyledSignatureName,
   StyledSignatureRole,
   StyledSignatureEmail,
-  StyledSignaturePhone
+  StyledSignaturePhone,
+  StyledNotice
 } from './styled';
 import colors from 'assets/global/colors';
 import fonts from 'assets/global/fonts';
@@ -99,7 +101,8 @@ const App = () => {
               />
             </a>
           </h1>
-          {copied && <p>Copiado!</p>}
+
+          <StyledNotice copied={copied}>Copiado!</StyledNotice>
         </StyledWrapper>
       </StyledSignatureHeader>
       <StyledWrapper>
@@ -153,17 +156,19 @@ const App = () => {
             />
           </StyledSignatureFields>
           <StyledSignatureFields>
-            <Button
-              type="button"
-              onClick={() => {
-                copyText();
-              }}
-            >
-              Copiar assinatura
-            </Button>
-            <Button type="button" ref={copyHTML}>
-              Copiar em HTML
-            </Button>
+            <StyledSignatureActions>
+              <Button
+                type="button"
+                onClick={() => {
+                  copyText();
+                }}
+              >
+                Copiar assinatura
+              </Button>
+              <Button type="button" ref={copyHTML}>
+                Copiar em HTML
+              </Button>
+            </StyledSignatureActions>
           </StyledSignatureFields>
         </StyledSignatureContainer>
         <StyledSignaturePreview ref={preview}>
