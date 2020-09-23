@@ -24,7 +24,7 @@ const App = () => {
   const [role, setRole] = useState('Front-End Software Engineer');
   const [email, setEmail] = useState('celso.fabri@ateliware.com');
   const [phone, setPhone] = useState('41 99122-2951');
-  const { register } = useForm();
+  const { register, watch } = useForm();
 
   return (
     <StyledSignature>
@@ -52,8 +52,10 @@ const App = () => {
             <Input
               type="text"
               name="name"
+              onChange={() => {
+                setName(watch('name'))
+              }}
               placeholder="Insira seu nome"
-              onChange={() => {}}
               ref={register({ required: false })}
             />
           </StyledSignatureFields>
@@ -61,6 +63,9 @@ const App = () => {
             <Input
               type="text"
               name="role"
+              onChange={() => {
+                setRole(watch('role'))
+              }}
               placeholder="Insira seu cargo"
               ref={register({ required: false })}
             />
@@ -69,6 +74,9 @@ const App = () => {
             <Input
               type="email"
               name="email"
+              onChange={() => {
+                setEmail(watch('email'))
+              }}
               placeholder="Insira seu e-mail"
               ref={register({ required: false })}
             />
@@ -77,7 +85,10 @@ const App = () => {
           <StyledSignatureFields>
             <Input
               type="tel"
-              name="tel"
+              name="phone"
+              onChange={() => {
+                setPhone(watch('phone'))
+              }}
               placeholder="Insira seu telefone"
               ref={register({ required: false })}
             />
