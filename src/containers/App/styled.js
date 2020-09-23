@@ -18,12 +18,12 @@ export const StyledSignatureHeader = styled.header`
   display: block;
 `;
 
-export const StyledSignatureForm = styled.form`
+export const StyledSignatureContainer = styled.form`
   display: block;
   width: 45%;
 `;
 
-export const StyledSignatureFormGroup = styled.div`
+export const StyledSignatureFields = styled.div`
   margin-top: 15px;
 
   &:first-child {
@@ -36,13 +36,16 @@ export const StyledSignaturePreview = styled.div`
   width: 45%;
 `;
 
-export const StyledSignatureImage = styled.div``;
+export const StyledSignatureImage = styled.div`
+  display: block;
+  width: 100%;
+`;
 
 export const StyledSignatureInfo = styled.div`
-
-p {
-  margin: 2px 0;
-}`;
+  p {
+    margin: 2px 0;
+  }
+`;
 
 export const StyledSignatureName = styled.h3`
   margin: 0;
