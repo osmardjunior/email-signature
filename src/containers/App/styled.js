@@ -25,6 +25,10 @@ export const StyledSignatureHeader = styled.header`
 export const StyledSignatureContainer = styled.form`
   display: block;
   width: 45%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const StyledSignatureFields = styled.div`
@@ -38,16 +42,30 @@ export const StyledSignatureFields = styled.div`
 export const StyledSignatureActions = styled.div`
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   margin: -10px;
 
   button {
     margin: 10px;
+  }
+
+  @media screen and (max-width: 420px) {
+
+    button {
+      display: block;
+      width: 100%;
+    }
   }
 `;
 
 export const StyledSignaturePreview = styled.div`
   display: block;
   width: 45%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-top: 50px;
+  }
 `;
 
 export const StyledSignatureImage = styled.div`
