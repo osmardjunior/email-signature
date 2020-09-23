@@ -57,14 +57,17 @@ export const StyledSignatureRole = styled.p`
   font-family: ${fonts.secondary};
   font-size: 15px;
   font-weight: 700;
+  color: ${colors.black};
 `;
 
 export const StyledSignatureEmail = styled.p`
   font-family: ${fonts.secondary};
   font-size: 15px;
+  color: ${colors.gray400};
 `;
 
 export const StyledSignaturePhone = styled.p`
   font-family: ${fonts.secondary};
   font-size: 15px;
+  color: ${colors.gray400};
 `;

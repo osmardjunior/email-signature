@@ -17,6 +17,8 @@ import {
   StyledSignatureEmail,
   StyledSignaturePhone
 } from './styled';
+import colors from 'assets/global/colors';
+import fonts from 'assets/global/fonts';
 import iconAteliware from 'assets/images/ateliware-icon.svg';
 import logoAteliware from 'assets/images/ateliware-logo.svg';
 
@@ -180,24 +182,55 @@ const App = () => {
             </a>
           </StyledSignatureImage>
           <StyledSignatureInfo>
-            <StyledSignatureName>
+            <StyledSignatureName
+              style={{
+                margin: '0',
+                fontFamily: fonts.primary,
+                color: colors.red400
+              }}
+            >
               {name || 'Peterson F. dos Santos'}
             </StyledSignatureName>
 
-            <StyledSignatureRole>
+            <StyledSignatureRole
+              style={{
+                fontFamily: fonts.primary,
+                fontSize: '15px',
+                fontWeight: '700',
+                color: colors.black
+              }}
+            >
               {role || 'Co-founder & CEO'}
             </StyledSignatureRole>
 
-            <StyledSignatureEmail>
+            <StyledSignatureEmail
+              style={{
+                fontFamily: fonts.secondary,
+                fontSize: '15px',
+                color: colors.gray400
+              }}
+            >
               {email || 'peterson.santos@ateliware.com'}
             </StyledSignatureEmail>
 
-            <StyledSignaturePhone>
+            <StyledSignaturePhone
+              style={{
+                fontFamily: fonts.secondary,
+                fontSize: '15px',
+                color: colors.gray400
+              }}
+            >
               +55 41 3010-2275
             </StyledSignaturePhone>
 
             {phone !== '' && (
-              <StyledSignaturePhone>
+              <StyledSignaturePhone
+                style={{
+                  fontFamily: fonts.secondary,
+                  fontSize: '15px',
+                  color: colors.gray400
+                }}
+              >
                 +55 {phone || '41 99999-9999'}
               </StyledSignaturePhone>
             )}
