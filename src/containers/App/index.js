@@ -178,7 +178,7 @@ const App = () => {
               rel="noopener noreferrer"
             >
               <img
-                src="https://raw.githubusercontent.com/celsofabri/email-signature/master/src/assets/images/ateliware-logo.svg"
+                src="https://raw.githubusercontent.com/ateliware/email-signature/master/src/assets/images/ateliware-logo.svg"
                 width="200"
                 height="auto"
                 alt="Ateliware"
