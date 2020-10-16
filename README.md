@@ -14,7 +14,7 @@ In the first moment you need had installed `node` in your machine.
 1. Clone this project:
 
 ```
-$ git clone git@github.com:celsofabri/email-signature.git
+$ git clone git@github.com:ateliware/email-signature.git
 ```
 
 2. Install dependencies:
