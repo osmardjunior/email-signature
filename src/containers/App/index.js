@@ -183,7 +183,6 @@ const App = () => {
                 height="auto"
                 alt="Obra assinatura"
               />
-          
             </a>
           </StyledSignatureImage>
           <StyledSignatureInfo>
