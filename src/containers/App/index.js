@@ -21,7 +21,7 @@ import {
 } from './styled';
 import colors from 'assets/global/colors';
 import fonts from 'assets/global/fonts';
-import iconAteliware from 'assets/images/ateliware-icon.svg';
+import iconObra from 'assets/images/obra.svg';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -88,15 +88,15 @@ const App = () => {
         <StyledWrapper>
           <h1>
             <a
-              href="https://ateliware.com/"
+              href="https://obra.ag"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={iconAteliware}
-                width="60"
+                src={iconObra}
+                width="160"
                 height="auto"
-                alt="Ateliware"
+                alt="Obra logo"
               />
             </a>
           </h1>
@@ -173,16 +173,17 @@ const App = () => {
         <StyledSignaturePreview ref={preview}>
           <StyledSignatureImage>
             <a
-              href="https://ateliware.com/"
+              href="https://obra.ag"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="https://raw.githubusercontent.com/ateliware/email-signature/master/src/assets/images/ateliware-logo.svg"
-                width="200"
+                src="https://assets.website-files.com/5f563fd3dc992888a7cb4da2/6023f7c4ffe60520238b79f0_logo_laranja%402x.png"
+                width="100"
                 height="auto"
-                alt="Ateliware"
+                alt="Obra assinatura"
               />
+          
             </a>
           </StyledSignatureImage>
           <StyledSignatureInfo>
@@ -193,7 +194,7 @@ const App = () => {
                 color: colors.red400
               }}
             >
-              {name || 'Peterson F. dos Santos'}
+              {name || 'Seu Nome'}
             </StyledSignatureName>
 
             <StyledSignatureRole
@@ -216,7 +217,7 @@ const App = () => {
                 color: colors.gray400
               }}
             >
-              {email || 'peterson.santos@ateliware.com'}
+              {email || 'seuemail@obra.ag'}
             </StyledSignatureEmail>
 
             <StyledSignaturePhone
