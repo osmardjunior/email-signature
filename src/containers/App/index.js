@@ -227,7 +227,7 @@ const App = () => {
                 color: colors.gray400
               }}
             >
-              +55 41 3010-2275
+              {/* +55 41 3010-2275 */}
             </StyledSignaturePhone>
 
             {phone !== '' && (
