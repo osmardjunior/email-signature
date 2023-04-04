@@ -185,9 +185,7 @@ const App = () => {
               />
             </a>
             <div>
-                <h2>Teste</h2>
-
-
+              <h2>Teste</h2>
             </div>
           </StyledSignatureImage>
           <StyledSignatureInfo>
